@@ -1,0 +1,141 @@
+import React, { useState } from 'react';
+import { motion } from 'framer-motion';
+import { Mail, Phone, MapPin, Send, CheckCircle2 } from 'lucide-react';
+
+const Contact = () => {
+  const [formData, setFormData] = useState({ name: '', email: '', message: '' });
+  const [status, setStatus] = useState('idle'); // idle, submitting, success
+
+  const handleChange = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if (!formData.name || !formData.email || !formData.message) return;
+    
+    setStatus('submitting');
+    // Simulate form submission
+    setTimeout(() => {
+      setStatus('success');
+      setFormData({ name: '', email: '', message: '' });
+      setTimeout(() => setStatus('idle'), 3000);
+    }, 1500);
+  };
+
+  return (
+    <section id="contact" className="py-20 relative bg-[#13161c]">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.6 }}
+        >
+          <div className="flex items-center gap-4 mb-12">
+            <h2 className="text-3xl font-bold">Let's Connect</h2>
+            <div className="h-[1px] bg-slate-700 flex-grow max-w-xs"></div>
+          </div>
+
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+            <div>
+              <p className="text-slate-400 mb-8 max-w-md text-lg">
+                I'm currently looking for new opportunities. Whether you have a question or just want to say hi, I'll try my best to get back to you!
+              </p>
+
+              <div className="space-y-6">
+                <a href="mailto:swatiprakashtannu@gmail.com" className="flex items-center gap-4 group w-max">
+                  <div className="w-12 h-12 bg-slate-800 rounded-full flex items-center justify-center group-hover:bg-blue-600 transition-colors border border-slate-700 group-hover:border-blue-500">
+                    <Mail size={20} className="text-slate-300 group-hover:text-white" />
+                  </div>
+                  <div>
+                    <h4 className="text-sm font-semibold text-slate-400">Email</h4>
+                    <p className="text-white group-hover:text-blue-400 transition-colors">swatiprakashtannu@gmail.com</p>
+                  </div>
+                </a>
+
+                <a href="tel:7633803237" className="flex items-center gap-4 group w-max">
+                  <div className="w-12 h-12 bg-slate-800 rounded-full flex items-center justify-center group-hover:bg-blue-600 transition-colors border border-slate-700 group-hover:border-blue-500">
+                    <Phone size={20} className="text-slate-300 group-hover:text-white" />
+                  </div>
+                  <div>
+                    <h4 className="text-sm font-semibold text-slate-400">Phone</h4>
+                    <p className="text-white group-hover:text-blue-400 transition-colors">7633803237</p>
+                  </div>
+                </a>
+
+                <div className="flex items-center gap-4">
+                  <div className="w-12 h-12 bg-slate-800 rounded-full flex items-center justify-center border border-slate-700">
+                    <MapPin size={20} className="text-slate-300" />
+                  </div>
+                  <div>
+                    <h4 className="text-sm font-semibold text-slate-400">Location</h4>
+                    <p className="text-white">Alpha 2, Greater Noida, Uttar Pradesh</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div className="glass-card p-6 sm:p-8 rounded-xl border border-slate-700/50">
+              <form onSubmit={handleSubmit} className="flex flex-col gap-4">
+                <div className="flex flex-col gap-2">
+                  <label htmlFor="name" className="text-sm font-medium text-slate-300">Name</label>
+                  <input
+                    type="text"
+                    id="name"
+                    name="name"
+                    required
+                    value={formData.name}
+                    onChange={handleChange}
+                    className="bg-[#0f1115] border border-slate-700 rounded-md px-4 py-3 text-white focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition-all"
+                    placeholder="John Doe"
+                  />
+                </div>
+                
+                <div className="flex flex-col gap-2">
+                  <label htmlFor="email" className="text-sm font-medium text-slate-300">Email</label>
+                  <input
+                    type="email"
+                    id="email"
+                    name="email"
+                    required
+                    value={formData.email}
+                    onChange={handleChange}
+                    className="bg-[#0f1115] border border-slate-700 rounded-md px-4 py-3 text-white focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition-all"
+                    placeholder="john@example.com"
+                  />
+                </div>
+                
+                <div className="flex flex-col gap-2 mb-2">
+                  <label htmlFor="message" className="text-sm font-medium text-slate-300">Message</label>
+                  <textarea
+                    id="message"
+                    name="message"
+                    required
+                    rows={4}
+                    value={formData.message}
+                    onChange={handleChange}
+                    className="bg-[#0f1115] border border-slate-700 rounded-md px-4 py-3 text-white focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition-all resize-none"
+                    placeholder="Hello Swati..."
+                  ></textarea>
+                </div>
+                
+                <button
+                  type="submit"
+                  disabled={status === 'submitting'}
+                  className="bg-blue-600 hover:bg-blue-700 disabled:bg-blue-600/50 text-white font-medium py-3 rounded-md transition-all flex items-center justify-center gap-2 mt-2"
+                >
+                  {status === 'idle' && <><Send size={18} /> Send Message</>}
+                  {status === 'submitting' && <span className="animate-pulse">Sending...</span>}
+                  {status === 'success' && <><CheckCircle2 size={18} /> Message Sent!</>}
+                </button>
+              </form>
+            </div>
+          </div>
+        </motion.div>
+      </div>
+    </section>
+  );
+};
+
+export default Contact;
