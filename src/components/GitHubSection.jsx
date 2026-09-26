@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Github, GitBranch, Star, ExternalLink } from 'lucide-react';
+import { GitBranch, Star, ExternalLink } from 'lucide-react';
+import { FaGithub } from 'react-icons/fa';
 
 const GitHubSection = () => {
   return (
@@ -14,12 +15,12 @@ const GitHubSection = () => {
         >
           <div className="flex flex-col md:flex-row justify-between items-center bg-slate-800/40 border border-slate-700/50 rounded-2xl p-8 relative overflow-hidden">
             <div className="absolute right-0 top-0 opacity-5 pointer-events-none translate-x-1/4 -translate-y-1/4">
-              <Github size={240} />
+              <FaGithub size={240} />
             </div>
             
             <div className="z-10 text-center md:text-left mb-6 md:mb-0">
               <h2 className="text-2xl font-bold text-white mb-2 flex items-center justify-center md:justify-start gap-3">
-                <Github size={28} />
+                <FaGithub size={28} />
                 My GitHub
               </h2>
               <p className="text-slate-400 max-w-md">

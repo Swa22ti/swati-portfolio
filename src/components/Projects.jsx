@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { ExternalLink, Github, CheckCircle2 } from 'lucide-react';
+import { ExternalLink, CheckCircle2 } from 'lucide-react';
+import { FaGithub } from 'react-icons/fa';
 
 const Projects = () => {
   const projects = [
@@ -120,7 +121,7 @@ const Projects = () => {
                           rel="noopener noreferrer"
                           className="inline-flex items-center gap-2 text-sm font-medium text-white bg-slate-800 hover:bg-slate-700 border border-slate-600 px-4 py-2 rounded-md transition-colors w-max"
                         >
-                          <Github size={18} />
+                          <FaGithub size={18} />
                           View Source
                           <ExternalLink size={14} className="ml-1 opacity-70" />
                         </a>

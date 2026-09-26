@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Github, Linkedin, Mail, FileText, ChevronRight } from 'lucide-react';
+import { Mail, FileText, ChevronRight } from 'lucide-react';
+import { FaGithub, FaLinkedin } from 'react-icons/fa';
 import { Link } from 'react-scroll';
 
 const Hero = () => {
@@ -26,7 +27,7 @@ const Hero = () => {
               <span className="text-gradient">Swati Prakash</span>
             </h1>
             <h2 className="text-xl sm:text-2xl text-slate-300 font-medium mb-6">
-              Computer Science Graduate | Software Engineer
+              Computer Science Graduate
             </h2>
             <p className="text-slate-400 max-w-xl leading-relaxed mb-8">
               Motivated Computer Science undergraduate with hands-on experience in building scalable web applications using Java, MERN stack, and blockchain technologies. Adept at integrating AI-driven solutions and designing secure, modular backend systems. Passionate about solving complex problems through clean code and efficient system design.
@@ -55,10 +56,10 @@ const Hero = () => {
 
             <div className="flex items-center gap-5">
               <a href="https://github.com/Swa22ti" target="_blank" rel="noopener noreferrer" className="text-slate-400 hover:text-white transition-colors" aria-label="GitHub">
-                <Github size={24} />
+                <FaGithub size={24} />
               </a>
               <a href="https://www.linkedin.com/in/swati-prakash-6abb33251/" target="_blank" rel="noopener noreferrer" className="text-slate-400 hover:text-blue-400 transition-colors" aria-label="LinkedIn">
-                <Linkedin size={24} />
+                <FaLinkedin size={24} />
               </a>
               <a href="mailto:swatiprakashtannu@gmail.com" className="text-slate-400 hover:text-white transition-colors" aria-label="Email">
                 <Mail size={24} />
@@ -91,7 +92,7 @@ const Hero = () => {
                 </div>
                 <div className="flex">
                   <span className="text-blue-400 mr-4">3</span>
-                  <span className="ml-4"><span className="text-sky-300">role</span>: <span className="text-green-300">'Software Engineer'</span>,</span>
+                  <span className="ml-4"><span className="text-sky-300">role</span>: <span className="text-green-300">'Developer'</span>,</span>
                 </div>
                 <div className="flex">
                   <span className="text-blue-400 mr-4">4</span>

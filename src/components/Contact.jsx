@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Mail, Phone, MapPin, Send, CheckCircle2 } from 'lucide-react';
+import { FaGithub, FaLinkedin } from 'react-icons/fa';
 
 const Contact = () => {
   const [formData, setFormData] = useState({ name: '', email: '', message: '' });
@@ -13,7 +14,7 @@ const Contact = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (!formData.name || !formData.email || !formData.message) return;
-    
+
     setStatus('submitting');
     // Simulate form submission
     setTimeout(() => {
@@ -44,35 +45,55 @@ const Contact = () => {
               </p>
 
               <div className="space-y-6">
-                <a href="mailto:swatiprakashtannu@gmail.com" className="flex items-center gap-4 group w-max">
-                  <div className="w-12 h-12 bg-slate-800 rounded-full flex items-center justify-center group-hover:bg-blue-600 transition-colors border border-slate-700 group-hover:border-blue-500">
-                    <Mail size={20} className="text-slate-300 group-hover:text-white" />
+                <a href="mailto:swatiprakashtannu@gmail.com" className="flex items-center gap-5 group w-max">
+                  <div className="w-12 h-12 bg-[#1b202d] rounded-xl flex items-center justify-center transition-colors">
+                    <Mail size={22} className="text-indigo-400 group-hover:text-indigo-300 transition-colors" />
                   </div>
                   <div>
-                    <h4 className="text-sm font-semibold text-slate-400">Email</h4>
-                    <p className="text-white group-hover:text-blue-400 transition-colors">swatiprakashtannu@gmail.com</p>
+                    <h4 className="text-[11px] font-bold text-slate-500 tracking-wider uppercase mb-1">Email</h4>
+                    <p className="text-white text-sm font-medium group-hover:text-indigo-400 transition-colors">swatiprakashtannu@gmail.com</p>
                   </div>
                 </a>
 
-                <a href="tel:7633803237" className="flex items-center gap-4 group w-max">
-                  <div className="w-12 h-12 bg-slate-800 rounded-full flex items-center justify-center group-hover:bg-blue-600 transition-colors border border-slate-700 group-hover:border-blue-500">
-                    <Phone size={20} className="text-slate-300 group-hover:text-white" />
+                <a href="tel:7633803237" className="flex items-center gap-5 group w-max">
+                  <div className="w-12 h-12 bg-[#1b202d] rounded-xl flex items-center justify-center transition-colors">
+                    <Phone size={22} className="text-emerald-400 group-hover:text-emerald-300 transition-colors" />
                   </div>
                   <div>
-                    <h4 className="text-sm font-semibold text-slate-400">Phone</h4>
-                    <p className="text-white group-hover:text-blue-400 transition-colors">7633803237</p>
+                    <h4 className="text-[11px] font-bold text-slate-500 tracking-wider uppercase mb-1">Phone</h4>
+                    <p className="text-white text-sm font-medium group-hover:text-emerald-400 transition-colors">+91-7633803237</p>
                   </div>
                 </a>
 
-                <div className="flex items-center gap-4">
-                  <div className="w-12 h-12 bg-slate-800 rounded-full flex items-center justify-center border border-slate-700">
-                    <MapPin size={20} className="text-slate-300" />
+                <div className="flex items-center gap-5">
+                  <div className="w-12 h-12 bg-[#1b202d] rounded-xl flex items-center justify-center">
+                    <MapPin size={22} className="text-rose-400" />
                   </div>
                   <div>
-                    <h4 className="text-sm font-semibold text-slate-400">Location</h4>
-                    <p className="text-white">Alpha 2, Greater Noida, Uttar Pradesh</p>
+                    <h4 className="text-[11px] font-bold text-slate-500 tracking-wider uppercase mb-1">Location</h4>
+                    <p className="text-white text-sm font-medium">Noida, Uttar Pradesh</p>
                   </div>
                 </div>
+
+                <a href="https://github.com/Swa22ti" target="_blank" rel="noopener noreferrer" className="flex items-center gap-5 group w-max">
+                  <div className="w-12 h-12 bg-[#1b202d] rounded-xl flex items-center justify-center transition-colors">
+                    <FaGithub size={22} className="text-slate-300 group-hover:text-white transition-colors" />
+                  </div>
+                  <div>
+                    <h4 className="text-[11px] font-bold text-slate-500 tracking-wider uppercase mb-1">GitHub</h4>
+                    <p className="text-white text-sm font-medium group-hover:text-slate-300 transition-colors">github.com/Swa22ti</p>
+                  </div>
+                </a>
+
+                <a href="https://www.linkedin.com/in/swati-prakash-6abb33251/" target="_blank" rel="noopener noreferrer" className="flex items-center gap-5 group w-max">
+                  <div className="w-12 h-12 bg-[#1b202d] rounded-xl flex items-center justify-center transition-colors">
+                    <FaLinkedin size={22} className="text-blue-400 group-hover:text-blue-300 transition-colors" />
+                  </div>
+                  <div>
+                    <h4 className="text-[11px] font-bold text-slate-500 tracking-wider uppercase mb-1">LinkedIn</h4>
+                    <p className="text-white text-sm font-medium group-hover:text-blue-400 transition-colors">linkedin.com/in/swati-prakash-6abb33251</p>
+                  </div>
+                </a>
               </div>
             </div>
 
@@ -88,10 +109,10 @@ const Contact = () => {
                     value={formData.name}
                     onChange={handleChange}
                     className="bg-[#0f1115] border border-slate-700 rounded-md px-4 py-3 text-white focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition-all"
-                    placeholder="John Doe"
+                    placeholder="Your Name"
                   />
                 </div>
-                
+
                 <div className="flex flex-col gap-2">
                   <label htmlFor="email" className="text-sm font-medium text-slate-300">Email</label>
                   <input
@@ -102,10 +123,10 @@ const Contact = () => {
                     value={formData.email}
                     onChange={handleChange}
                     className="bg-[#0f1115] border border-slate-700 rounded-md px-4 py-3 text-white focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition-all"
-                    placeholder="john@example.com"
+                    placeholder="you@example.com"
                   />
                 </div>
-                
+
                 <div className="flex flex-col gap-2 mb-2">
                   <label htmlFor="message" className="text-sm font-medium text-slate-300">Message</label>
                   <textarea
@@ -119,7 +140,7 @@ const Contact = () => {
                     placeholder="Hello Swati..."
                   ></textarea>
                 </div>
-                
+
                 <button
                   type="submit"
                   disabled={status === 'submitting'}

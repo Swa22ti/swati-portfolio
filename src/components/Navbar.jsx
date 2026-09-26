@@ -30,8 +30,11 @@ const Navbar = () => {
     <nav className={`fixed w-full z-50 transition-all duration-300 ${scrolled ? 'glass-nav py-3' : 'bg-transparent py-5'}`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center">
-          <div className="flex-shrink-0 flex items-center">
-            <span className="text-xl font-bold font-mono text-gradient">&lt;SP /&gt;</span>
+          <div className="flex-shrink-0 flex items-center gap-3">
+            <div className="w-10 h-10 bg-[#5b5cf5] rounded-xl flex items-center justify-center text-white font-bold text-lg">
+              SP
+            </div>
+            <span className="text-white font-bold text-xl hidden sm:block tracking-wide">Swati Prakash</span>
           </div>
           
           <div className="hidden lg:flex items-center space-x-6">
