@@ -6,22 +6,20 @@ import { Link } from 'react-scroll';
 
 const Hero = () => {
   return (
-    <section id="home" className="pt-32 pb-20 min-h-screen flex items-center relative overflow-hidden">
+    <section id="home" className="pt-32 pb-20 min-h-screen flex flex-col justify-center relative overflow-hidden">
       {/* Background decoration */}
       <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-blue-500/10 rounded-full blur-[120px] pointer-events-none"></div>
       <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-sky-500/10 rounded-full blur-[120px] pointer-events-none"></div>
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full z-10">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full z-10 flex flex-col gap-16">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
+            className="order-2 lg:order-1"
           >
-            <div className="inline-block px-3 py-1 rounded-full border border-blue-500/30 bg-blue-500/10 text-blue-400 text-sm font-medium mb-6">
-              Available for Opportunities
-            </div>
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight mb-4">
               Hi, I’m <br />
               <span className="text-gradient">Swati Prakash</span>
@@ -71,70 +69,86 @@ const Hero = () => {
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="relative"
+            className="flex justify-center lg:justify-end order-1 lg:order-2"
           >
-            {/* Terminal Window Design */}
-            <div className="glass-card rounded-xl overflow-hidden shadow-2xl border border-slate-700/50">
-              <div className="terminal-header">
-                <div className="terminal-dot dot-red"></div>
-                <div className="terminal-dot dot-yellow"></div>
-                <div className="terminal-dot dot-green"></div>
-                <div className="ml-4 text-xs font-mono text-slate-400">swati_portfolio.jsx</div>
-              </div>
-              <div className="p-6 font-mono text-sm sm:text-base bg-[#0d1117] text-slate-300">
-                <div className="flex">
-                  <span className="text-blue-400 mr-4">1</span>
-                  <span><span className="text-purple-400">const</span> <span className="text-blue-300">developer</span> = {'{'}</span>
-                </div>
-                <div className="flex">
-                  <span className="text-blue-400 mr-4">2</span>
-                  <span className="ml-4"><span className="text-sky-300">name</span>: <span className="text-green-300">'Swati Prakash'</span>,</span>
-                </div>
-                <div className="flex">
-                  <span className="text-blue-400 mr-4">3</span>
-                  <span className="ml-4"><span className="text-sky-300">role</span>: <span className="text-green-300">'Developer'</span>,</span>
-                </div>
-                <div className="flex">
-                  <span className="text-blue-400 mr-4">4</span>
-                  <span className="ml-4"><span className="text-sky-300">education</span>: <span className="text-green-300">'B.Tech CSE'</span>,</span>
-                </div>
-                <div className="flex">
-                  <span className="text-blue-400 mr-4">5</span>
-                  <span className="ml-4"><span className="text-sky-300">focus</span>: [</span>
-                </div>
-                <div className="flex">
-                  <span className="text-blue-400 mr-4">6</span>
-                  <span className="ml-8 text-green-300">'Java'</span>, <span className="text-green-300">'Web Development'</span>,
-                </div>
-                <div className="flex">
-                  <span className="text-blue-400 mr-4">7</span>
-                  <span className="ml-8 text-green-300">'QA'</span>, <span className="text-green-300">'AI'</span>, <span className="text-green-300">'Blockchain'</span>
-                </div>
-                <div className="flex">
-                  <span className="text-blue-400 mr-4">8</span>
-                  <span className="ml-4">],</span>
-                </div>
-                <div className="flex">
-                  <span className="text-blue-400 mr-4">9</span>
-                  <span className="ml-4"><span className="text-sky-300">problemSolving</span>: <span className="text-green-300">'150+ Algorithmic Problems'</span></span>
-                </div>
-                <div className="flex">
-                  <span className="text-blue-400 mr-4">10</span>
-                  <span>{'}'};</span>
-                </div>
-                <div className="flex mt-4">
-                  <span className="text-blue-400 mr-4">11</span>
-                  <span><span className="text-purple-400">developer</span>.<span className="text-blue-300">solveProblem</span>();</span>
-                </div>
-                <div className="flex mt-2 items-center text-green-400">
-                  <ChevronRight size={14} className="mr-2" />
-                  <span>"Clean code delivered efficiently."</span>
-                  <span className="w-2 h-4 bg-green-400 ml-1 animate-pulse"></span>
-                </div>
-              </div>
+            <div className="w-64 h-64 sm:w-80 sm:h-80 rounded-full overflow-hidden border-4 border-slate-700/50 bg-slate-800 shadow-2xl relative group flex-shrink-0">
+              <img
+                src="/my_image.jpg"
+                alt="Swati Prakash"
+                className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                onError={(e) => { e.target.onerror = null; e.target.src = "https://ui-avatars.com/api/?name=Swati+Prakash&background=1e293b&color=38bdf8&size=200"; }}
+              />
             </div>
           </motion.div>
         </div>
+
+        <motion.div
+          initial={{ opacity: 0, y: 40 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.4 }}
+          className="relative max-w-4xl mx-auto w-full"
+        >
+          {/* Terminal Window Design */}
+          <div className="glass-card rounded-xl overflow-hidden shadow-2xl border border-slate-700/50">
+            <div className="terminal-header">
+              <div className="terminal-dot dot-red"></div>
+              <div className="terminal-dot dot-yellow"></div>
+              <div className="terminal-dot dot-green"></div>
+              <div className="ml-4 text-xs font-mono text-slate-400">swati_portfolio.jsx</div>
+            </div>
+            <div className="p-6 font-mono text-sm sm:text-base bg-[#0d1117] text-slate-300">
+              <div className="flex">
+                <span className="text-blue-400 mr-4">1</span>
+                <span><span className="text-purple-400">const</span> <span className="text-blue-300">developer</span> = {'{'}</span>
+              </div>
+              <div className="flex">
+                <span className="text-blue-400 mr-4">2</span>
+                <span className="ml-4"><span className="text-sky-300">name</span>: <span className="text-green-300">'Swati Prakash'</span>,</span>
+              </div>
+              <div className="flex">
+                <span className="text-blue-400 mr-4">3</span>
+                <span className="ml-4"><span className="text-sky-300">role</span>: <span className="text-green-300">'Developer'</span>,</span>
+              </div>
+              <div className="flex">
+                <span className="text-blue-400 mr-4">4</span>
+                <span className="ml-4"><span className="text-sky-300">education</span>: <span className="text-green-300">'B.Tech CSE'</span>,</span>
+              </div>
+              <div className="flex">
+                <span className="text-blue-400 mr-4">5</span>
+                <span className="ml-4"><span className="text-sky-300">focus</span>: [</span>
+              </div>
+              <div className="flex">
+                <span className="text-blue-400 mr-4">6</span>
+                <span className="ml-8 text-green-300">'Java'</span>, <span className="text-green-300">'Web Development'</span>,
+              </div>
+              <div className="flex">
+                <span className="text-blue-400 mr-4">7</span>
+                <span className="ml-8 text-green-300">'QA'</span>, <span className="text-green-300">'AI'</span>, <span className="text-green-300">'Blockchain'</span>
+              </div>
+              <div className="flex">
+                <span className="text-blue-400 mr-4">8</span>
+                <span className="ml-4">],</span>
+              </div>
+              <div className="flex">
+                <span className="text-blue-400 mr-4">9</span>
+                <span className="ml-4"><span className="text-sky-300">problemSolving</span>: <span className="text-green-300">'150+ Algorithmic Problems'</span></span>
+              </div>
+              <div className="flex">
+                <span className="text-blue-400 mr-4">10</span>
+                <span>{'}'};</span>
+              </div>
+              <div className="flex mt-4">
+                <span className="text-blue-400 mr-4">11</span>
+                <span><span className="text-purple-400">developer</span>.<span className="text-blue-300">solveProblem</span>();</span>
+              </div>
+              <div className="flex mt-2 items-center text-green-400">
+                <ChevronRight size={14} className="mr-2" />
+                <span>"Clean code delivered efficiently."</span>
+                <span className="w-2 h-4 bg-green-400 ml-1 animate-pulse"></span>
+              </div>
+            </div>
+          </div>
+        </motion.div>
       </div>
     </section>
   );

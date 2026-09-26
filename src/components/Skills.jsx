@@ -17,7 +17,7 @@ const Skills = () => {
     },
     {
       title: "Core Subjects",
-      skills: ["DBMS", "OOPS"]
+      skills: ["DBMS", "MySQL", "OOPS"]
     },
     {
       title: "Soft Skills",
@@ -52,8 +52,8 @@ const Skills = () => {
                 <h3 className="text-xl font-semibold mb-4 text-white border-b border-slate-700 pb-2">{category.title}</h3>
                 <div className="flex flex-wrap gap-2">
                   {category.skills.map(skill => (
-                    <span 
-                      key={skill} 
+                    <span
+                      key={skill}
                       className="px-3 py-1.5 bg-slate-800/80 text-slate-300 text-sm rounded-md border border-slate-700 hover:border-blue-500/50 hover:text-white transition-colors"
                     >
                       {skill}
